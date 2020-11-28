@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FLOOD_VERSION=$(curl --silent "https://api.github.com/repos/jesec/flood/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+
+docker push "$IMAGE_NAME" 
+docker push "$DOCKER_REPO:$FLOOD_VERSION"
